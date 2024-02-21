@@ -47,7 +47,7 @@ def client(ip, port, thread_no):
             client_socket.close()
             sys.exit(1)
 
-        client_socket.sendall(name.encode())
+        client_socket.sendall(name.encode() + b'\n')
         while True:
             client_buffer = client_socket.recv(1024).decode().strip("\x00")
             # print(repr(client_buffer))
